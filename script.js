@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -17,11 +18,13 @@ var numberOfCharacters = prompt("How many characters would you like in your pass
   
   if (numberOfCharacters !== Number) {
     alert ("Please enter a number.")
+    
   }
-  
-  if (numberOfCharacters < 8 || numberOfCharacters > 128) {
+  else if (numberOfCharacters < 8 || numberOfCharacters > 128) {
     alert ("Please enter a number between 8 and 128.")
   }
+
+      
   
 var includeLower = confirm("Would you like your password to include lowercase letters?")
 
@@ -56,6 +59,17 @@ if userWantsNumber() {
 
 if userWantsSymbol() {
   possibleCharacters.push(arrayOfSymbols)
+}
+
+
+function generatePassword() {
+  var result = "";
+  for (var i=0; i < desiredLength; i++) {
+      var charset = possibleCharacters[Math.random() * possibleCharacters.length];
+      var char = charset[Math.random() * charset.length];
+      result += char;
+  }
+  return result;
 }
 
 // Add event listener to generate button
