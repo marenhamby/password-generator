@@ -14,7 +14,15 @@ function writePassword() {
 // types of criteria (lowercase, uppercase, number, symbol).
 
 var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")
-
+  
+  if (numberOfCharacters !== Number) {
+    alert ("Please enter a number.")
+  }
+  
+  if (numberOfCharacters < 8 || numberOfCharacters > 128) {
+    alert ("Please enter a number between 8 and 128.")
+  }
+  
 var includeLower = confirm("Would you like your password to include lowercase letters?")
 
 var includeUpper = confirm("Would you like your password to include uppercase letters?")
