@@ -10,6 +10,20 @@ function writePassword() {
 
 }
 
+// **Prompt added for length and confirm statements added for the other 
+// types of criteria (lowercase, uppercase, number, symbol).
+
+var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")
+
+var includeLower = confirm("Would you like your password to include lowercase letters?")
+
+var includeUpper = confirm("Would you like your password to include uppercase letters?")
+
+var includeNumbers = confirm("Would you like your password to include numbers?")
+
+var includeSymbols = confirm("Would you like your password to include numbers?")
+
+
 // **List of functions used to generate a random value for each of the 
 // types of criteria (lowercase, uppercase, number, symbol).
 
