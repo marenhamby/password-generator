@@ -31,13 +31,32 @@ var includeNumbers = confirm("Would you like your password to include numbers?")
 
 var includeSymbols = confirm("Would you like your password to include numbers?")
 
-// Added new variables for possible characters to be added to password.
+// **Added new variables for possible characters to be added to password.
 
 var possibleCharacters = []
 var arrayOfLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var arrayOfUppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var arrayOfNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var arrayOfSymbols = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "####", "####", "^", "_", "`", "{", "|", "}", "~"]
+
+
+
+// **Added if statements to add arrays that the user selects to the list of possible characters to be used.
+if userWantsLower() {
+  possibleCharacters.push(arrayOfLowercase);
+}
+
+if userWantsUpper() {
+  possibleCharacters.push(arrayOfUppercase);
+}
+
+if userWantsNumber() {
+  possibleCharacters.push(arrayOfNumbers)
+}
+
+if userWantsSymbol() {
+  possibleCharacters.push(arrayOfSymbols)
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
