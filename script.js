@@ -13,22 +13,22 @@ function writePassword() {
   // Added prompt and confirms to gather needed information about the password and 
   // then use that to indicate what should be added to the array of arrays used to generate the password.
 
-  var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")
-    
-    if (numberOfCharacters !== Number) {
-      alert ("Please enter a number.")
-    }
-    else if (numberOfCharacters < 8 || numberOfCharacters > 128) {
-      alert ("Please enter a number between 8 and 128.")
+  var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")    
+  var entry = parseInt(numberOfCharacters)  
+  if (numberOfCharacters === Number || numberOfCharacters < 8 || numberOfCharacters > 128) {
+      alert ("Please enter a number between 8 and 128.");
+      writePassword ()
     }
     
-  var desiredLength = parseInt(numberOfCharacters)
+  var desiredLength = numberOfCharacters
+  console.log(desiredLength)
     
   var includeLower = confirm("Would you like your password to include lowercase letters?")
     if (true) {
       var userWantsLower = true
     }
-  
+  console.log(userWantsLower)
+
   var includeUpper = confirm("Would you like your password to include uppercase letters?")
     if (true) {
       var userWantsUpper = true
@@ -39,12 +39,12 @@ function writePassword() {
       var userWantsNumber = true
     }
   
-  var includeSymbols = confirm("Would you like your password to include numbers?")
+  var includeSymbols = confirm("Would you like your password to include symbols?")
     if (true) {
       var userWantsSymbol = true
     }
   
-  // **Added new variables for possible characters to be added to password.
+  // **Added new variables with arrays for possible characters to be added to password.
   
   var possibleCharacters = []
   var arrayOfLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
