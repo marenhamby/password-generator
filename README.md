@@ -10,4 +10,4 @@ https://marenhamby.github.io/password-generator/
 
 ## Screenshot
 Here is a screenshot of what the page looks like:
-![password generator demo](/Assets/Javascript-Password-Generator.png)
+![password generator demo](./Assets/Javascript-Password-Generator.png)
