@@ -9,18 +9,22 @@ function writePassword() {
 
   passwordText.value = password;
 
-  
+  function generatePassword() {
   // Added prompt and confirms to gather needed information about the password and 
   // then use that to indicate what should be added to the array of arrays used to generate the password.
 
   var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")    
   var entry = parseInt(numberOfCharacters)  
-  if (numberOfCharacters === Number || entry < 8 || entry > 128) {
+  console.log(typeof entry != Number)
+  if (entry < 8 || entry > 128) {
       alert ("Please enter a number between 8 and 128.");
-      writePassword();
-    }
+      generatePassword();
+  }
     
-  var desiredLength = numberOfCharacters
+  // **Prompt added for length and confirm statements added for the other 
+  // types of criteria (lowercase, uppercase, number, symbol).
+
+  var desiredLength = entry
   console.log(desiredLength)
     
   var userWantsLower = confirm("Would you like your password to include lowercase letters?")
@@ -44,7 +48,6 @@ function writePassword() {
   var arrayOfSymbols = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
   
   
-  
   // **Added if statements to add arrays that the user selects to the list of possible characters to be used.
   if (userWantsLower) {
     possibleCharacters.push(arrayOfLowercase);
@@ -61,22 +64,21 @@ function writePassword() {
   if (userWantsSymbol) {
     possibleCharacters.push(arrayOfSymbols)
   }
-  console.log(possibleCharacters)
 
-  // **Prompt added for length and confirm statements added for the other 
-  // types of criteria (lowercase, uppercase, number, symbol).
-  
-  
-  
-  function generatePassword() {
-    var result = "";
+
+
+    var password = "";
+    console.log(desiredLength)
     for (var i=0; i < desiredLength; i++) {
-        var charset = possibleCharacters[Math.random() * possibleCharacters.length];
-        var char = charset[Math.random() * charset.length];
-        result += char;
+      var charset = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
+      var char = charset[Math.floor(Math.random() * charset.length)];
+      password += char;
+      console.log(password)
     }
-    return result;
+    return password;
+  
   }
+
 }
 
 
