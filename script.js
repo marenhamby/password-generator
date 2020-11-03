@@ -15,34 +15,25 @@ function writePassword() {
 
   var numberOfCharacters = prompt("How many characters would you like in your password? Please select a number 8 through 128.")    
   var entry = parseInt(numberOfCharacters)  
-  if (numberOfCharacters === Number || numberOfCharacters < 8 || numberOfCharacters > 128) {
+  if (numberOfCharacters === Number || entry < 8 || entry > 128) {
       alert ("Please enter a number between 8 and 128.");
-      writePassword ()
+      writePassword();
     }
     
   var desiredLength = numberOfCharacters
   console.log(desiredLength)
     
-  var includeLower = confirm("Would you like your password to include lowercase letters?")
-    if (true) {
-      var userWantsLower = true
-    }
+  var userWantsLower = confirm("Would you like your password to include lowercase letters?")
   console.log(userWantsLower)
 
-  var includeUpper = confirm("Would you like your password to include uppercase letters?")
-    if (true) {
-      var userWantsUpper = true
-    }
+  var userWantsUpper = confirm("Would you like your password to include uppercase letters?")
+  console.log(userWantsUpper)
+
+  var userWantsNumber = confirm("Would you like your password to include numbers?")
+  console.log(userWantsNumber)
   
-  var includeNumbers = confirm("Would you like your password to include numbers?")
-    if (true) {
-      var userWantsNumber = true
-    }
-  
-  var includeSymbols = confirm("Would you like your password to include symbols?")
-    if (true) {
-      var userWantsSymbol = true
-    }
+  var userWantsSymbol = confirm("Would you like your password to include symbols?")
+  console.log(userWantsSymbol)
   
   // **Added new variables with arrays for possible characters to be added to password.
   
@@ -50,7 +41,7 @@ function writePassword() {
   var arrayOfLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
   var arrayOfUppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
   var arrayOfNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  var arrayOfSymbols = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "####", "####", "^", "_", "`", "{", "|", "}", "~"]
+  var arrayOfSymbols = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
   
   
   
@@ -70,7 +61,7 @@ function writePassword() {
   if (userWantsSymbol) {
     possibleCharacters.push(arrayOfSymbols)
   }
-
+  console.log(possibleCharacters)
 
   // **Prompt added for length and confirm statements added for the other 
   // types of criteria (lowercase, uppercase, number, symbol).
